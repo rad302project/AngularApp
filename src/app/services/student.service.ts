@@ -24,7 +24,7 @@ export class StudentService {
   }
 
   getStudentByID(id: number): Observable<Student> {
-    const url = `${apiUrl}/${id}`
+    const url = `${apiUrl}/Students/${id}`
     return this.http.get<Student>(url).pipe(
       tap(_ => console.log(`fetched student id=${id}`)),
       catchError(this.handleError<Student>(`getStudentByID id=${id}`))
@@ -32,14 +32,15 @@ export class StudentService {
   }
 
   addStudent(student: any): Observable<Student> {
-    return this.http.post<Student>(apiUrl, student, httpOptions).pipe(
+    const url = `${apiUrl}/Students/POST/`;
+    return this.http.post<Student>(url, student, httpOptions).pipe(
       tap((studentRes: Student) => console.log(`added Student w/ id=${studentRes.StudentID}`)),
       catchError(this.handleError<Student>('addStudent'))
     );
   }
 
   updateStudent(id: number, student: any): Observable<any> {
-    const url = `${apiUrl}/${id}`;
+    const url = `${apiUrl}/Students/PUT/${id}`;
     return this.http.put(url, student, httpOptions).pipe(
       tap(_ => console.log(`updated Student id=${id}`)),
       catchError(this.handleError<any>('updateStudent'))
@@ -47,7 +48,7 @@ export class StudentService {
   }
 
   deleteStudent(id: number): Observable<Student> {
-    const url = `${apiUrl}/${id}`;
+    const url = `${apiUrl}/Students/DELETE/${id}`;
     return this.http.delete<Student>(url, httpOptions).pipe(
       tap(_ => console.log(`deleted Student id=${id}`)),
       catchError(this.handleError<Student>(`deleteStudent`))

@@ -1,0 +1,47 @@
+.horNavContainer {
+    width: 100%;
+}
+
+mat-drawer {
+    box-shadow: 1px 13px 28px 1px #888888;
+}
+
+.sectionTitle {
+    font-size: 1.7em;
+    margin-top: 20px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+mat-drawer-container {
+    height: 100%;
+}
+
+.menu {
+    width: 70%;
+    text-align: right;
+}
+
+.title {
+    width: 30%;
+    text-align: left;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.logoutBtn {
+    margin-left: 25px;
+}
+
+.nav-link {
+    margin-left: 10px;
+    font-size: 1.2em;
+}
+
+.nav-link:hover {
+    background-color: lightgrey;
+}
