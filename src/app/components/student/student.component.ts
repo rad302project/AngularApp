@@ -10,29 +10,49 @@ import { Student } from 'src/app/interfaces/student';
 export class StudentComponent implements OnInit {
 
  public students: Student[] = [];
- addStudent: Student = {
+ addedStudent: Student = {
    FirstName: 'John',
    LastName: 'Parker',
    StudentID: 5,
    RegistrationDate: new Date()
  }
- updateStudent: Student;
+ updateStudent: any = {
+   LastName: 'Healy'
+ }
 
   constructor( private studentService: StudentService) { }
 
   ngOnInit() {
-    this.studentService.addStudent(this.addStudent);
-    this.studentService.getAllStudents().subscribe(data => {
-     this.students = data;
-     console.log(data)
-    });
-    this.studentService.getStudentByID(5).subscribe(data => {
+  }
+
+  updateStudentFunction(){
+    this.studentService.updateStudent(1, this.updateStudent);
+  }
+
+  addStudentFunction(){
+    this.studentService.addStudent(this.addedStudent);
+  }
+
+  getStudentByIDFunction(){
+    this.studentService.getStudentByID(1).subscribe(data => {
       this.updateStudent = data
-      this.updateStudent.FirstName = 'Johny';
+      if(data != null)
+        this.updateStudent.FirstName = 'Johny';
+
       console.log(data)
     });
-    this.studentService.updateStudent(5, this.updateStudent);
+  }
+
+  deleteStudentFunction() {
     this.studentService.deleteStudent(5);
+
+  }
+
+  getAllStudentsFunction(){
+    this.studentService.getAllStudents().subscribe(data => {
+      this.students = data;
+      console.log(data)
+     });
   }
 
 }

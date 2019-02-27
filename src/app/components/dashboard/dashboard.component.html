@@ -1,0 +1,27 @@
+<mat-toolbar class="mat-elevation-z6 nav" color="primary">
+  <div class="title">
+    <h1>Dashboard</h1>
+  </div>
+  <div class="menu">
+      <button class="logoutBtn" mat-button routerLinkActive="active" (click)="logout()">
+        Logout
+      </button>
+  </div>
+</mat-toolbar>
+
+<mat-drawer-container  class="example-container">
+  <mat-drawer mode="side" opened>
+      <a class="sectionTitle" href="#">Students</a>
+    <mat-divider></mat-divider>
+      <a class="nav-link" href="#">View All Students</a>
+      <a class="nav-link" href="#">Search Student</a>
+      <a class="nav-link" href="#">Add Student</a>
+      <a class="sectionTitle" href="#">Discussions</a>
+    <mat-divider></mat-divider>
+      <a class="sectionTitle" href="#">Interest Groups</a>
+    <mat-divider></mat-divider>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
