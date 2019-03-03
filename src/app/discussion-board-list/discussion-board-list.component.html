@@ -1,0 +1,14 @@
+<div class="container">
+  <h1 class="mat-display-1" fxLayoutAlign="center">
+    Discussions
+  </h1>
+  <div class="button" fxLayoutAlign="right">
+    <button mat-raised-button color="primary">Primary</button>
+  </div>
+  <mat-divider></mat-divider>
+  <mat-list *ngFor="let discussion of discussions">
+    <mat-list-item fxLayoutAlign="center">
+      <app-discussion-board [discussion]="discussion"></app-discussion-board>
+    </mat-list-item>
+  </mat-list>
+</div>

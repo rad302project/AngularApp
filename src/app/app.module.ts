@@ -9,16 +9,29 @@ import { StudentComponent } from './components/student/student.component';
 import { StudentService } from './services/student.service';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from "@angular/router";
-import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DiscussionBoardComponent } from './discussion-board/discussion-board.component';
+import { DiscussionBoardListComponent } from './discussion-board-list/discussion-board-list.component';
+
+import {FlexLayoutModule} from "@angular/flex-layout"
+
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { far } from "@fortawesome/free-regular-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+
+library.add(far, fas);
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "home" },
-  { path: "home", component: StudentComponent },
+  { path: "home", component: DiscussionBoardListComponent },
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignUpComponent },
+  { path: "dicussion-board", component: DiscussionBoardComponent },
   { path: "**", redirectTo: "login" }
 ];
 
@@ -28,7 +41,9 @@ const routes: Routes = [
     StudentComponent,
     LoginComponent,
     SignUpComponent,
-    DashboardComponent
+    DashboardComponent,
+    DiscussionBoardComponent,
+    DiscussionBoardListComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +53,9 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FlexLayoutModule,
+    FontAwesomeModule
   ],
   providers: [StudentService, HttpClient, 
     {provide: LocationStrategy, useClass: HashLocationStrategy}

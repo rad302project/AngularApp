@@ -11,3 +11,10 @@ app-root {
     margin: 0;
     padding: 0;
 }
+
+mat-list {
+    width: 100%
+}
+mat-list-item {
+    width: 100%;
+}
