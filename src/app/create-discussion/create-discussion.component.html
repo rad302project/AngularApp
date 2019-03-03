@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="title-container" fxLayout="column" fxLayoutAlign="space-evenly center">
+    <h1 class="mat-display-1">
+      Create Discussion
+    </h1>
+
+  </div>
+  <mat-divider></mat-divider>
+  <div class="wrapper" fxLayout="column" fxLayoutAlign="space-evenly center">
+    <form class="example-form">
+      <mat-select [(value)]="selected" placeholder="Discussion Type">
+        <mat-option value="private">
+          Private
+        </mat-option>
+        <mat-option value="public">
+          Public
+        </mat-option>
+      </mat-select>
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Title">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <textarea rows="5" matInput placeholder="Content"></textarea>
+      </mat-form-field>
+    </form>
+    <button mat-raised-button color="primary" style="width:50%" routerLink="/home">
+      <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+      Create
+    </button>
+
+    <!-- can use this as a condition to display a list of users to add to discussion -->
+    <div *ngIf="selected == 'private'"> waho </div>
+    {{selected}}
+
+  </div>

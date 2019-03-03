@@ -24,14 +24,16 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
+import { CreateDiscussionComponent } from './create-discussion/create-discussion.component';
 
 library.add(far, fas);
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "home" },
   { path: "home", component: DiscussionBoardListComponent },
+  { path: "discussions", component: DiscussionBoardListComponent },
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignUpComponent },
-  { path: "dicussion-board", component: DiscussionBoardComponent },
+  { path: "create", component: CreateDiscussionComponent },
   { path: "**", redirectTo: "login" }
 ];
 
@@ -43,7 +45,8 @@ const routes: Routes = [
     SignUpComponent,
     DashboardComponent,
     DiscussionBoardComponent,
-    DiscussionBoardListComponent
+    DiscussionBoardListComponent,
+    CreateDiscussionComponent
   ],
   imports: [
     BrowserModule,
