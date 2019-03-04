@@ -7,12 +7,7 @@ import { IDiscussionBoard } from '../interfaces/discussion-board';
   styleUrls: ['./discussion-board.component.css']
 })
 export class DiscussionBoardComponent implements OnInit {
- 
-  @Input() discussion: IDiscussionBoard
-   
-  constructor() { }
-
-  ngOnInit() {
-  }
+  
+  ngOnInit(): void { }
 
 }

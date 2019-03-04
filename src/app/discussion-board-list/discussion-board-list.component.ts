@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IDiscussionBoard } from '../interfaces/discussion-board';
+import { DiscussionBoardService } from '../services/discussion-board/discussion-board.service';
 
 @Component({
   selector: 'app-discussion-board-list',
@@ -7,16 +8,34 @@ import { IDiscussionBoard } from '../interfaces/discussion-board';
   styleUrls: ['./discussion-board-list.component.css']
 })
 export class DiscussionBoardListComponent implements OnInit {
+  currentlyOpenedItemIndex = -1;
 
   discussions: IDiscussionBoard[] = [
-    { title: "discussion one", content: "here's some content for discussion 1" },
-    { title: "discussion two", content: "here's some content  for discussion 2" },
-    { title: "discussion three", content: "here's some content  for discussion 3" },
-  ]
+    { title: 'Header 1',  content: 'Content 1' },
+    { title: 'title 2',  content: 'Content 2' },
+    { title: 'title 3',  content: 'Content 3' },
+    { title: 'title 4',  content: 'Content 4' },
+    { title: 'title 5',  content: 'Content 5' },
+    { title: 'title 6',  content: 'Content 6' },
+    { title: 'title 7',  content: 'Content 7' },
+    { title: 'title 8',  content: 'Content 8' },
+    { title: 'title 9',  content: 'Content 9' },
+    { title: 'title 10',  content: 'Content 10' }
+  ];
 
-  constructor() { }
+ 
+  constructor(private discussionService: DiscussionBoardService) { }
 
   ngOnInit() {
+    this.discussionService.getAllDiscussions().subscribe(data => console.log("discussions", data))
   }
 
+  setClosed(itemIndex) {
+    if (this.currentlyOpenedItemIndex === itemIndex) {
+      this.currentlyOpenedItemIndex = -1;
+    }
+  }
+  setOpened(itemIndex) {
+    this.currentlyOpenedItemIndex = itemIndex;
+  }
 }
