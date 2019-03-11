@@ -17,14 +17,14 @@
         </mat-option>
       </mat-select>
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Title">
+        <input matInput placeholder="Title" #title>
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <textarea rows="5" matInput placeholder="Content"></textarea>
+        <textarea rows="5" matInput placeholder="Content" #content></textarea>
       </mat-form-field>
     </form>
-    <button mat-raised-button color="primary" style="width:50%" routerLink="/home">
+    <button mat-raised-button color="primary" (click)="createDiscussion(title.value, content.value)" style="width:50%" routerLink="/home">
       <fa-icon [icon]="['fas', 'plus']"></fa-icon>
       Create
     </button>

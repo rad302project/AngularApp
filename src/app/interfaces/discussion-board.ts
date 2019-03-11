@@ -1,4 +1,5 @@
 export interface IDiscussionBoard {
-    title: string;
-    content: string;
+    Title: string;
+    Content: string;
+    CreatedAt?: Date;
 }

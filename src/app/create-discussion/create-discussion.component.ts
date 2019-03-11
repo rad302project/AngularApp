@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IDiscussionBoard } from '../interfaces/discussion-board';
+import { DiscussionBoardService } from '../services/discussion-board/discussion-board.service';
 
 @Component({
   selector: 'app-create-discussion',
@@ -7,11 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateDiscussionComponent implements OnInit {
   selected = "public"
-  constructor() { }
+  constructor(private discussionBoardService: DiscussionBoardService) { }
 
-  ngOnInit() {
-    console.log(this.selected)
+  ngOnInit() {  }
+
+  createDiscussion(title, content) {
+    let discussion : IDiscussionBoard = {
+      Title: title,
+      Content: content,
+      //CreatedAt: new Date()
+    }
+    this.discussionBoardService.createDiscussion(discussion)
   }
-
 
 }
