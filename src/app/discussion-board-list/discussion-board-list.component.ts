@@ -10,24 +10,26 @@ import { DiscussionBoardService } from '../services/discussion-board/discussion-
 export class DiscussionBoardListComponent implements OnInit {
   currentlyOpenedItemIndex = -1;
 
-  discussions: IDiscussionBoard[] = [
-    { title: 'Header 1',  content: 'Content 1' },
-    { title: 'title 2',  content: 'Content 2' },
-    { title: 'title 3',  content: 'Content 3' },
-    { title: 'title 4',  content: 'Content 4' },
-    { title: 'title 5',  content: 'Content 5' },
-    { title: 'title 6',  content: 'Content 6' },
-    { title: 'title 7',  content: 'Content 7' },
-    { title: 'title 8',  content: 'Content 8' },
-    { title: 'title 9',  content: 'Content 9' },
-    { title: 'title 10',  content: 'Content 10' }
-  ];
+  private discussions: IDiscussionBoard[]
+
+  // discussions: IDiscussionBoard[] = [
+  //   { title: 'Header 1',  content: 'Content 1' },
+  //   { title: 'title 2',  content: 'Content 2' },
+  //   { title: 'title 3',  content: 'Content 3' },
+  //   { title: 'title 4',  content: 'Content 4' },
+  //   { title: 'title 5',  content: 'Content 5' },
+  //   { title: 'title 6',  content: 'Content 6' },
+  //   { title: 'title 7',  content: 'Content 7' },
+  //   { title: 'title 8',  content: 'Content 8' },
+  //   { title: 'title 9',  content: 'Content 9' },
+  //   { title: 'title 10',  content: 'Content 10' }
+  // ];
 
  
   constructor(private discussionService: DiscussionBoardService) { }
 
   ngOnInit() {
-    this.discussionService.getAllDiscussions().subscribe(data => console.log("discussions", data))
+    this.discussionService.getAllDiscussions().subscribe(data => {this.discussions = data})
   }
 
   setClosed(itemIndex) {

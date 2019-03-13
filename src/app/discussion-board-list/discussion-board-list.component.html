@@ -18,13 +18,13 @@
         (closed)="setClosed(i)">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            {{ discussion.title }}
+            {{ discussion.Title }}
           </mat-panel-title>
           <mat-panel-description>
             {{ currentlyOpenedItemIndex === i ? 'Close' : 'Open' }}
           </mat-panel-description>
         </mat-expansion-panel-header>
-        <p>{{ discussion.content }}</p>
+        <p>{{ discussion.Content }}</p>
       </mat-expansion-panel>
     </mat-accordion>
 </div>
