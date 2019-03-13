@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MemberService } from 'src/app/services/members/member.service';
+import { IMember } from 'src/app/interfaces/member';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,8 @@ export class LoginComponent implements OnInit {
   pwd: string;
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private memberService: MemberService
   ) { 
     this.form = fb.group({
       id: ['', Validators.required],
@@ -25,7 +28,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    //Login shtuff
+    
   }
 
 }

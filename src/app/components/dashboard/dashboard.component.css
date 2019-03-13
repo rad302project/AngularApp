@@ -15,6 +15,10 @@ mat-drawer {
     text-align: left;
 }
 
+mat-divider {
+    margin-bottom: 15px;
+}
+
 mat-drawer-container {
     height: 100%;
 }

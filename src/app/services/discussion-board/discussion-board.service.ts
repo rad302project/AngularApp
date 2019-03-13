@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { Student } from 'src/app/interfaces/student';
 import { tap, catchError } from 'rxjs/operators';
 import { IDiscussionBoard } from 'src/app/interfaces/discussion-board';
 
@@ -16,8 +15,8 @@ export class DiscussionBoardService {
 
   getAllDiscussions(): Observable<IDiscussionBoard[]> {
     return this.http.get<IDiscussionBoard[]>(this.apiUrl + '/DiscussionBoards').pipe(
-      tap(discussions => console.log('fetched students', discussions)),
-      catchError(this.handleError('getAllStudents', []))
+      tap(discussions => console.log('fetched discussions', discussions)),
+      catchError(this.handleError('getAllDiscussions', []))
     );
   }
 
