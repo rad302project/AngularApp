@@ -19,7 +19,7 @@ export class CreateDiscussionComponent implements OnInit {
       Content: content,
       //CreatedAt: new Date()
     }
-    this.discussionBoardService.createDiscussion(discussion)
+    this.discussionBoardService.createDiscussion(discussion).subscribe(d => console.log("new discussion", discussion))
   }
 
 }

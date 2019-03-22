@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { StudentComponent } from './components/student/student.component';
-import { StudentService } from './services/student.service';
+// import { StudentService } from './services/student.service';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
@@ -60,7 +60,7 @@ const routes: Routes = [
     FlexLayoutModule,
     FontAwesomeModule
   ],
-  providers: [StudentService, HttpClient, 
+  providers: [ HttpClient, 
     {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent]

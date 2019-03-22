@@ -6,7 +6,7 @@
 
   </div>
   <mat-divider></mat-divider>
-  <div class="wrapper" fxLayout="column" fxLayoutAlign="space-evenly center">
+  <mat-card>
     <form class="example-form">
       <mat-select [(value)]="selected" placeholder="Discussion Type">
         <mat-option value="private">
@@ -24,6 +24,9 @@
         <textarea rows="5" matInput placeholder="Content" #content></textarea>
       </mat-form-field>
     </form>
+  </mat-card>
+  <div class="wrapper" fxLayout="column" fxLayoutAlign="space-evenly center">
+  
     <button mat-raised-button color="primary" (click)="createDiscussion(title.value, content.value)" style="width:50%" routerLink="/home">
       <fa-icon [icon]="['fas', 'plus']"></fa-icon>
       Create

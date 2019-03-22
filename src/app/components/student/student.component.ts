@@ -32,7 +32,7 @@ export class StudentComponent implements OnInit {
   }
 
   addStudentFunction(){
-    this.memberService.addMember(this.addedStudent);
+    // this.memberService.addMember(this.addedStudent);
   }
 
   getStudentByIDFunction(){

@@ -33,21 +33,8 @@ export class MemberService {
       );
     }
   
-    addMember(email: string, password: string, firstName: string, lastName: string): Observable<IMember> {
-      // const url = `${apiUrl}/Members/POST/`;
-      // return this.http.post<IMember>(url, member, httpOptions).pipe(
-      //   tap((memberRes: IMember) => console.log(`added Member w/ id=${memberRes.id}`)),
-      //   catchError(this.handleError<IMember>('addMember'))
-      // );
-      let body = JSON.stringify({email, password, firstName, lastName});
+    addMember(email: string, password: string, firstName: string, lastName: string) {
 
-      let httpOptions: { 
-        headers: HttpHeaders({
-        'Content-Type', 'appliction/json'
-      }) 
-    };
-
-      return this.http.post(apiUrl + "/accounts", {headers: headers, params: params, responseType: 'json'})
     }
   
     updateMember(id: number, lecturer: any): Observable<any> {
