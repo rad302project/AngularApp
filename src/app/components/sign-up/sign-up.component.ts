@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MemberService } from 'src/app/services/members/member.service';
-import { IMember } from 'src/app/interfaces/member';
+
 import { Router } from '@angular/router';
 
 @Component({
@@ -15,7 +14,6 @@ export class SignUpComponent implements OnInit {
   email: string;
 
   constructor(
-    private memberService: MemberService,
     private router: Router
   ) { }
 
@@ -23,8 +21,7 @@ export class SignUpComponent implements OnInit {
   }
 
   signup() {
-    this.memberService.addMember(this.email, this.pwd, this.firstName, this.lastName); 
-    this.router.navigate(['login'])
+       this.router.navigate(['login'])
   }
 
   login(){

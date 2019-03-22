@@ -5,7 +5,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
-import { StudentComponent } from './components/student/student.component';
 // import { StudentService } from './services/student.service';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { LoginComponent } from './components/login/login.component';
@@ -25,6 +24,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { CreateDiscussionComponent } from './create-discussion/create-discussion.component';
+import { UserComponent } from './user/user.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 library.add(far, fas);
 const routes: Routes = [
@@ -40,13 +41,14 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    StudentComponent,
     LoginComponent,
     SignUpComponent,
     DashboardComponent,
     DiscussionBoardComponent,
     DiscussionBoardListComponent,
-    CreateDiscussionComponent
+    CreateDiscussionComponent,
+    UserComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,

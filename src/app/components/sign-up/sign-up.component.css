@@ -1,0 +1,56 @@
+.full-width {
+    width: 100%;
+  }
+  .card {
+    margin-top: 1.75%;
+    max-width: 30%;
+  }
+  .sign-up-card {
+    margin-top:3%; 
+    width: 30%
+  }
+  /*
+    Gary
+    the following media queries will make the sign up responsive on all screens
+  */
+  @media only screen and (max-width: 1200px) {
+    .card {
+      max-width: 30%;
+      width: 100%;
+    }
+    .sign-up-card {
+      max-width: 30%;
+      width: 100%;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    .card {
+      max-width: 45%;
+      width: 100%;
+    }
+    .sign-up-card {
+      max-width: 65%;
+      width: 100%;
+    }
+  }
+  @media only screen and (max-width: 600px) {
+    .card {
+      max-width: 80%;
+      width: 100%;
+    }
+    .sign-up-card {
+      max-width: 80%;
+      width: 100%;
+    }
+  } 
+  @media only screen and (max-width: 320px) {
+    .card {
+      max-width: 95%;
+      width: 100%;
+    }
+    .sign-up-card {
+      max-width: 95%;
+      width: 100%;
+    }
+  }
+  

@@ -33,7 +33,8 @@
     </button>
 
     <!-- can use this as a condition to display a list of users to add to discussion -->
-    <div *ngIf="selected == 'private'"> waho </div>
-    {{selected}}
+    <div *ngIf="selected == 'private'"> 
+      <app-user-list></app-user-list>  
+    </div>
 
   </div>

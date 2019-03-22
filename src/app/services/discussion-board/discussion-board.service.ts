@@ -10,6 +10,7 @@ import { IDiscussionBoard } from 'src/app/interfaces/discussion-board';
 export class DiscussionBoardService {
 
   private apiUrl = "http://localhost:57229/api/DiscussionBoards"
+  // private apiUrl = "azurelink/api/DiscussionBoards"
 
   constructor(private http: HttpClient) { }
 
