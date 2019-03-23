@@ -6,13 +6,8 @@
     <mat-card-content>
       <form>
         <mat-form-field class="full-width">
-            <mat-label>First Name</mat-label>
-            <input matInput [(ngModel)]="firstName" name="firstName" placeholder="First Name">
-        </mat-form-field>
-
-        <mat-form-field class="full-width">
-          <mat-label>Last Name</mat-label>
-          <input matInput [(ngModel)]="lastName" name="lastName" placeholder="Last Name">
+            <mat-label>Username</mat-label>
+            <input matInput [(ngModel)]="name" name="name" placeholder="Username">
         </mat-form-field>
 
         <mat-form-field class="full-width">
@@ -25,15 +20,16 @@
           <input matInput type="password" [(ngModel)]="pwd" name="password" placeholder="Password">
         </mat-form-field>
   
-        <button mat-raised-button (click)="signup()" color="primary">Sign Up</button>
+        <button mat-raised-button (click)="register()" color="primary">Sign Up</button>
       </form>
     </mat-card-content>
   </mat-card>
 
   <mat-card class="sign-up-card"  fxLayoutAlign="center center" >
-    <button  mat-flat-button (click)="login()" >
+    <button  mat-flat-button routerLink="/login" >
       <fa-icon [icon]="['fas', 'sign-in-alt']" size="lg"></fa-icon>
       Already a user? Login here
   </button>
   </mat-card>
 </div>
+

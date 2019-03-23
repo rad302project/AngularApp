@@ -3,11 +3,11 @@
     <mat-card-title>
       Login
     </mat-card-title>
-    <mat-card-content fxLayoutAlign="center center" align="center">
-      <form class="myForm" [formGroup]="form" (ngSubmit)="login()" >
+    <mat-card-content>
+      <form class="myForm" [formGroup]="form" (ngSubmit)="login()">
         <mat-form-field class="full-width">
-          <mat-label>ID</mat-label>
-          <input matInput type="text" placeholder="ID" name="id" formControlName="id">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" placeholder="Email" name="email" formControlName="email">
         </mat-form-field>
         <mat-form-field class="full-width">
           <mat-label>Password</mat-label>
@@ -16,10 +16,30 @@
       </form>
     </mat-card-content>
   
-    <div class="buttonContainer">
-      <button  lass="icons first" mat-raised-button (click)="login()" color="primary">
+    <div> 
+      <button class="icons first"   color="primary" mat-raised-button (click)="login()">
+          <fa-icon [icon]="['fas', 'sign-in-alt']" size="lg"></fa-icon>
         Login 
       </button>
+      <!-- <button class="icons" mat-raised-button (click)="loginWithGoogle()" style="background-color:#ED3833;color:white;margin-top: 2%">
+          <fa-icon [icon]="['fab', 'google']" size="lg"></fa-icon>
+         Continue With Google 
+        </button>
+      <button  class="icons" mat-raised-button (click)="loginWithFacebook()" color="primary" style="background-color:#4267b2;margin-top: 2%"> 
+          <fa-icon [icon]="['fab', 'facebook-square']" size="lg"></fa-icon>
+        Continue With Facebook 
+      </button>
+      <button  class="icons" mat-raised-button (click)="loginWithGithub()" color="warn" style="background-color:#333;margin-top: 2%">
+          <fa-icon [icon]="['fab', 'github']" size="lg"></fa-icon>
+         Continue With Github 
+        </button> -->
     </div>
+  </mat-card>
+
+  <mat-card class="sign-up-card" fxLayoutAlign="center center" >
+    <button  mat-flat-button routerLink="/signup" >
+      <fa-icon [icon]="['fas', 'sign-in-alt']" size="lg"></fa-icon>
+      Not a user? Sign up here
+  </button>
   </mat-card>
 </div>

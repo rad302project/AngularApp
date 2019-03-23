@@ -10,6 +10,7 @@ import { IDiscussionBoard } from 'src/app/interfaces/discussion-board';
 export class DiscussionBoardService {
 
   private apiUrl = "http://localhost:57229/api/DiscussionBoards"
+  // private apiUrl = "azurelink/api/DiscussionBoards"
 
   constructor(private http: HttpClient) { }
 
@@ -29,6 +30,13 @@ export class DiscussionBoardService {
     return this.http.post<IDiscussionBoard>(this.apiUrl + "/postDiscussion", discussion, httpOptions).pipe(
       tap((newDiscussion: IDiscussionBoard) => console.log(`added discussion w/ id=${newDiscussion}`)),
       catchError(this.handleError<IDiscussionBoard>('addDiscussion'))
+    );
+  }
+
+  searchDiscussions(searchTerm: string): Observable<IDiscussionBoard[]> {
+    return this.http.get<IDiscussionBoard[]>(this.apiUrl + '/getDiscussions/' + searchTerm).pipe(
+      tap(searchedDiscussions => console.log('searched discussions', searchedDiscussions)),
+      catchError(this.handleError('searchDiscussions', []))
     );
   }
 
