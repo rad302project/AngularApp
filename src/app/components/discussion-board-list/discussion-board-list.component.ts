@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IDiscussionBoard } from '../interfaces/discussion-board';
-import { DiscussionBoardService } from '../services/discussion-board/discussion-board.service';
+import { IDiscussionBoard } from '../../interfaces/discussion-board';
+import { DiscussionBoardService } from '../../services/discussion-board/discussion-board.service';
 
 @Component({
   selector: 'app-discussion-board-list',

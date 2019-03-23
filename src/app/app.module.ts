@@ -15,8 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from "@angular/router";
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { DiscussionBoardComponent } from './discussion-board/discussion-board.component';
-import { DiscussionBoardListComponent } from './discussion-board-list/discussion-board-list.component';
+import { DiscussionBoardComponent } from '../app/components/discussion-board/discussion-board.component';
+import { DiscussionBoardListComponent } from './components/discussion-board-list/discussion-board-list.component';
 
 import {FlexLayoutModule} from "@angular/flex-layout"
 
@@ -24,8 +24,8 @@ import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
-import { CreateDiscussionComponent } from './create-discussion/create-discussion.component';
-
+import { CreateDiscussionComponent } from './components/create-discussion/create-discussion.component';
+import {PrivateDiscussionBoardsComponent} from '../app/components/private-discussion-boards/private-discussion-boards.component'
 library.add(far, fas);
 const routes: Routes = [
   { path: "", pathMatch: "full", redirectTo: "home" },
@@ -46,7 +46,8 @@ const routes: Routes = [
     DashboardComponent,
     DiscussionBoardComponent,
     DiscussionBoardListComponent,
-    CreateDiscussionComponent
+    CreateDiscussionComponent,
+    PrivateDiscussionBoardsComponent
   ],
   imports: [
     BrowserModule,

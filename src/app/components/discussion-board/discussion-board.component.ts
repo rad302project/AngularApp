@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IDiscussionBoard } from '../interfaces/discussion-board';
+import { IDiscussionBoard } from '../../interfaces/discussion-board';
 
 @Component({
   selector: 'app-discussion-board',
