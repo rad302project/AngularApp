@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IDiscussionBoard } from '../interfaces/discussion-board';
 import { DiscussionBoardService } from '../services/discussion-board/discussion-board.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-discussion-board-list',
@@ -11,6 +12,7 @@ export class DiscussionBoardListComponent implements OnInit {
   currentlyOpenedItemIndex = -1;
 
   private discussions: IDiscussionBoard[]
+  searchedDiscussions: IDiscussionBoard[]
 
   // discussions: IDiscussionBoard[] = [
   //   { title: 'Header 1',  content: 'Content 1' },
@@ -39,5 +41,11 @@ export class DiscussionBoardListComponent implements OnInit {
   }
   setOpened(itemIndex) {
     this.currentlyOpenedItemIndex = itemIndex;
+  }
+
+  searchBoards(searchTerm:string):IDiscussionBoard[]{
+    this.discussionService.searchDiscussions(searchTerm).subscribe(data => {this.searchedDiscussions = data});
+    console.log(this.searchedDiscussions);
+    return this.searchedDiscussions;
   }
 }

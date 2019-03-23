@@ -33,6 +33,13 @@ export class DiscussionBoardService {
     );
   }
 
+  searchDiscussions(searchTerm: string): Observable<IDiscussionBoard[]> {
+    return this.http.get<IDiscussionBoard[]>(this.apiUrl + '/getDiscussions/' + searchTerm).pipe(
+      tap(searchedDiscussions => console.log('searched discussions', searchedDiscussions)),
+      catchError(this.handleError('searchDiscussions', []))
+    );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.log(error);

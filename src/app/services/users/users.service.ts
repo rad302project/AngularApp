@@ -48,6 +48,13 @@ export class UsersService {
     );
   }
 
+  searchMember(searchTerm: string): Observable<IUser[]> {
+    return this.http.get<IUser[]>(this.apiUrl + '/getMembers/' + searchTerm).pipe(
+      tap(searchedUsers => console.log('Searched Users', searchedUsers)),
+      catchError(this.handleError('searchMember', []))
+    );
+  }
+
   // deleteMember(id: number): Observable<IUser> {
   //   const url = `${this.apiUrl}/Users/DELETE/${id}`;
   //   return this.http.delete<IUser>(url, httpOptions).pipe(
