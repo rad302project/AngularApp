@@ -11,3 +11,7 @@ mat-list-item {
 .title-container {
     margin-top: 2%;
 }
+
+mat-card:hover {
+    cursor: pointer;
+}

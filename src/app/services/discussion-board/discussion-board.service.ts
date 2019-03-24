@@ -21,6 +21,13 @@ export class DiscussionBoardService {
     );
   }
 
+  getDiscussionByID(id: string) : Observable<IDiscussionBoard[]> {
+    return this.http.get<IDiscussionBoard[]>(`${this.apiUrl}/${id}`).pipe(
+      tap(discussions => console.log('fetched discussions', discussions)),
+      catchError(this.handleError('getAllDiscussions', []))
+    );
+  }
+
   createDiscussion(discussion: IDiscussionBoard): Observable<IDiscussionBoard> {
     console.log("discussion service", { discussion })
     const httpOptions = {
@@ -35,7 +42,7 @@ export class DiscussionBoardService {
 
   searchDiscussions(searchTerm: string): Observable<IDiscussionBoard[]> {
     return this.http.get<IDiscussionBoard[]>(this.apiUrl + '/getDiscussions/' + searchTerm).pipe(
-      tap(searchedDiscussions => console.log('searched discussions', searchedDiscussions)),
+      tap(searchedDiscussions => searchedDiscussions),
       catchError(this.handleError('searchDiscussions', []))
     );
   }

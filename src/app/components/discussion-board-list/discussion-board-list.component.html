@@ -10,43 +10,24 @@
   </div>
 
   <mat-divider style="margin-bottom: 2%"></mat-divider>
-<mat-form-field style="width:100%;">
-  <input matInput #searchTerm (keyup)="searchBoards(searchTerm.value)" placeholder="Search for a Discussion" style="width: 100%;">
-</mat-form-field>
-<div *ngIf="searchedDiscussions">
-    <mat-accordion >
-  <mat-expansion-panel 
-    *ngFor="let discussion of searchedDiscussions; let i = index;"
-    (opened)="setOpened(i)"
-    (closed)="setClosed(i)">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        {{ discussion.Title }}
-      </mat-panel-title>
-      <mat-panel-description>
-        {{ currentlyOpenedItemIndex === i ? 'Close' : 'Open' }}
-      </mat-panel-description>
-    </mat-expansion-panel-header>
-    <p>{{ discussion.Content }}</p>
-  </mat-expansion-panel>
-</mat-accordion>
-</div>
-<div *ngIf="!searchedDiscussions">
-  <mat-accordion >
-      <mat-expansion-panel 
-        *ngFor="let discussion of discussions; let i = index;"
-        (opened)="setOpened(i)"
-        (closed)="setClosed(i)">
-        <mat-expansion-panel-header>
-          <mat-panel-title>
-            {{ discussion.Title }}
-          </mat-panel-title>
-          <mat-panel-description>
-            {{ currentlyOpenedItemIndex === i ? 'Close' : 'Open' }}
-          </mat-panel-description>
-        </mat-expansion-panel-header>
-        <p>{{ discussion.Content }}</p>
-      </mat-expansion-panel>
-    </mat-accordion>
+  <mat-form-field style="width:100%;">
+    <input matInput #searchTerm (keyup)="searchBoards(searchTerm.value)" placeholder="Search for a Discussion" style="width: 100%;">
+  </mat-form-field>
+
+  <div *ngIf="searchedDiscussions">
+    <mat-list *ngFor="let discussion of searchedDiscussions">
+      <mat-card>
+        {{discussion.Title}}
+      </mat-card>
+    </mat-list>
   </div>
+
+  <div *ngIf="!searchedDiscussions">
+    <mat-list *ngFor="let discussion of discussions">
+      <mat-card  [routerLink]="['/discussion', discussion.ID]">
+        {{discussion.Title}}
+      </mat-card>
+    </mat-list>
+  </div>
+
 </div>

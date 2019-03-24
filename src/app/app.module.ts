@@ -31,15 +31,14 @@ import { CreatePrivateDiscussionBoardComponent } from './components/create-priva
 
 library.add(far, fas);
 const routes: Routes = [
-  { path: "", pathMatch: "full", redirectTo: "home" },
-  { path: "home", component: DiscussionBoardListComponent },
+  { path: "", pathMatch: "full", redirectTo: "discussions" },
   { path: "discussions", component: DiscussionBoardListComponent },
+  { path: "discussion/:id", component: DiscussionBoardComponent },
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignUpComponent },
   { path: "create", component: CreateDiscussionComponent },  
   { path: "createPrivateDiscussion", component: CreatePrivateDiscussionBoardComponent },
   { path: "**", redirectTo: "login" },
-  
 ];
 
 @NgModule({
