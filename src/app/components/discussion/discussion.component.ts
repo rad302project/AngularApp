@@ -10,16 +10,21 @@ import { DiscussionBoardService } from 'src/app/services/discussion-board/discus
 })
 export class DiscussionComponent implements OnInit {
 
-  private discussion: IDiscussionBoard[]
+  private discussion: IDiscussionBoard;
   private discussionID: string;
   constructor(private route: ActivatedRoute, private discussionService: DiscussionBoardService) {
     console.log("test", this.route.snapshot.paramMap)
     
-    this.discussionID = this.route.snapshot.paramMap.get("discussion")
+    this.discussionID = this.route.snapshot.paramMap.get("id")
+    console.log(this.discussionID)
    }
 
   ngOnInit() {
     this.discussionService.getDiscussionByID(this.discussionID).subscribe(data => this.discussion = data)
+  }
+
+  delete(id) {
+    this.discussionService.deleteDiscussion(id).subscribe(data => console.log("deleting ", data))
   }
 
 }
