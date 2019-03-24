@@ -36,8 +36,10 @@ const routes: Routes = [
   { path: "discussions", component: DiscussionBoardListComponent },
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignUpComponent },
-  { path: "create", component: CreateDiscussionComponent },
-  { path: "**", redirectTo: "login" }
+  { path: "create", component: CreateDiscussionComponent },  
+  { path: "createPrivateDiscussion", component: CreatePrivateDiscussionBoardComponent },
+  { path: "**", redirectTo: "login" },
+  
 ];
 
 @NgModule({

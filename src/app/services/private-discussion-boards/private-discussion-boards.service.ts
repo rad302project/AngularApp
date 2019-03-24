@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { IPrivateDiscussionBoard } from 'src/app/interfaces/private-discussion-board';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,15 @@ export class PrivateDiscussionBoardsService {
 
   constructor(private httpclient: HttpClient) { }
 
-  postPrivateDiscussion(Title: string, Content: string){
+  postPrivateDiscussion(privateDiscussion: IPrivateDiscussionBoard) {
+    console.log(privateDiscussion)
+    return this.httpclient.post(this.API + "/postDiscussion", privateDiscussion).subscribe(data => {
+      console.log( data);
+    },
+      error => {
 
-this.httpclient.post(this.API + "/postDiscussion")
+        console.log("Error", error);
+
+      });
   }
 }

@@ -3,19 +3,21 @@
     <h1>Dashboard</h1>
   </div>
   <div class="menu">
-      <button class="logoutBtn" mat-button routerLinkActive="active" (click)="logout()">
-        Logout
-      </button>
+    <button class="logoutBtn" mat-button routerLinkActive="active" (click)="logout()">
+      Logout
+    </button>
   </div>
 </mat-toolbar>
 
-<mat-drawer-container  class="example-container">
+<mat-drawer-container class="example-container">
   <mat-drawer mode="side" opened>
-      <a class="sectionTitle" routerLink="/invites">Invites</a>
+    <a class="sectionTitle" routerLink="/invites">Invites</a>
     <mat-divider></mat-divider>
-      <a class="sectionTitle" routerLink="/discussions">Discussions</a>
+    <a class="sectionTitle" routerLink="/discussions">Discussions</a>
     <mat-divider></mat-divider>
-      <a class="sectionTitle" routerLink="/groups">Interest Groups</a>
+    <a class="sectionTitle" routerLink="/groups">Interest Groups</a>
+    <mat-divider></mat-divider> 
+    <a class="sectionTitle" routerLink="/createPrivateDiscussion">Create Private Discussion</a>
     <mat-divider></mat-divider>
   </mat-drawer>
   <mat-drawer-content>
