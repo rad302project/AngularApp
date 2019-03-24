@@ -33,4 +33,13 @@ export class PrivateDiscussionBoardsService {
 
     return this.httpclient.get<IPrivateDiscussionBoard[]>(this.API + "/getAllPrivateDiscussions", httpOptions)
   }
+
+  
+  getDiscussion(id: string): Observable<IPrivateDiscussionBoard> {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', "Access-Control-Allow-Origin": "http://localhost:4200" })
+    };
+
+    return this.httpclient.get<IPrivateDiscussionBoard>(this.API + "/getDiscussionByID", httpOptions,)
+  }
 }
