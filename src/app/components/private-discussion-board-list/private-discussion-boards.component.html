@@ -1,0 +1,5 @@
+<div *ngIf="privateDiscussions" >
+  <mat-list  *ngFor="let discussion of privateDiscussions">
+    <mat-list-item (click)="openPrivateDiscussion(discussion.ID)">{{discussion.Title}}</mat-list-item>
+   </mat-list>
+</div>

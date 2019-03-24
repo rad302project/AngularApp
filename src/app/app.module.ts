@@ -17,17 +17,18 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DiscussionBoardComponent } from '../app/components/discussion-board/discussion-board.component';
 import { DiscussionBoardListComponent } from './components/discussion-board-list/discussion-board-list.component';
 
-import {FlexLayoutModule} from "@angular/flex-layout"
+import { FlexLayoutModule } from "@angular/flex-layout"
 
 import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { CreateDiscussionComponent } from './components/create-discussion/create-discussion.component';
-import {PrivateDiscussionBoardsComponent} from '../app/components/private-discussion-board-list/private-discussion-boards.component'
+import { PrivateDiscussionBoardsListComponent } from '../app/components/private-discussion-board-list/private-discussion-boards.component'
 import { UserComponent } from './user/user.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { CreatePrivateDiscussionBoardComponent } from './components/create-private-discussion-board/create-private-discussion-board.component';
+import { PrivateDiscussionBoardComponent } from './components/private-discussion-board/private-discussion-board.component';
 
 library.add(far, fas);
 const routes: Routes = [
@@ -36,10 +37,12 @@ const routes: Routes = [
   { path: "discussions", component: DiscussionBoardListComponent },
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignUpComponent },
-  { path: "create", component: CreateDiscussionComponent },  
+  { path: "create", component: CreateDiscussionComponent },
   { path: "createPrivateDiscussion", component: CreatePrivateDiscussionBoardComponent },
+  { path: "viewPrivateDiscussion", component: PrivateDiscussionBoardComponent },
+  { path: "viewPrivateDiscussionList", component: PrivateDiscussionBoardsListComponent },
   { path: "**", redirectTo: "login" },
-  
+
 ];
 
 @NgModule({
@@ -51,10 +54,11 @@ const routes: Routes = [
     DiscussionBoardComponent,
     DiscussionBoardListComponent,
     CreateDiscussionComponent,
-    PrivateDiscussionBoardsComponent,
+    PrivateDiscussionBoardsListComponent,
     UserComponent,
     UserListComponent,
-    CreatePrivateDiscussionBoardComponent
+    CreatePrivateDiscussionBoardComponent,
+    PrivateDiscussionBoardComponent
   ],
   imports: [
     BrowserModule,
@@ -68,8 +72,8 @@ const routes: Routes = [
     FlexLayoutModule,
     FontAwesomeModule
   ],
-  providers: [ HttpClient, 
-    {provide: LocationStrategy, useClass: HashLocationStrategy}
+  providers: [HttpClient,
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
   bootstrap: [AppComponent]
 })
