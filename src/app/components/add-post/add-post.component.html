@@ -1,8 +1,9 @@
 <div class="container">
   <div class="title-container" fxLayout="column" fxLayoutAlign="space-evenly center">
-    <h1 class="mat-display-1">
+    <mat-divider style="margin-top:3%;"></mat-divider>
+    <h3>
       Add a Post to this discussion
-    </h1>
+    </h3>
 
   </div>
   <mat-divider></mat-divider>
@@ -16,9 +17,38 @@
         <textarea rows="5" matInput placeholder="Content" #content></textarea>
       </mat-form-field>
     </form>
+    <button mat-raised-button color="primary" (click)="createPost(title.value, content.value)" style="width:100%">
+      <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+      Add to discussion
+    </button>
   </mat-card>
-  <button mat-raised-button color="primary" (click)="createPost(title.value, content.value)" style="width:50%">
-    <fa-icon [icon]="['fas', 'plus']"></fa-icon>
-    Create
-  </button>
+
 </div>
+
+<!-- 
+  <div class="container">
+  <div class="title-container" fxLayout="column" fxLayoutAlign="space-evenly center">
+    <h1 class="mat-display-1">
+      Create Discussion
+    </h1>
+
+  </div>
+  <mat-divider></mat-divider>
+  <mat-card fxLayoutAlign="space-evenly center" style="margin-top:3%;">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Title" #title>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <textarea rows="5" matInput placeholder="Content" #content></textarea>
+      </mat-form-field>
+    </form>
+  </mat-card>
+  <div class="wrapper" fxLayout="column" fxLayoutAlign="space-evenly center">
+    <button mat-raised-button color="primary" (click)="createDiscussion(title.value, content.value)" style="width:50%" routerLink="/home">
+      <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+      Create
+    </button>
+  </div>
+ -->

@@ -6,7 +6,10 @@
     <h5>
       {{discussion.Content}}
     </h5>
-      <fa-icon (click)="delete(discussion.ID)" routerLink="/discussions" color="warn"  [icon]="['fas', 'trash']"></fa-icon>
+    <button style="display:inline;margin-left:90%;" color="warn" mat-icon-button (click)="delete(discussion.ID)" routerLink="/discussions">
+      <fa-icon  [icon]="['fas', 'trash']"></fa-icon>
+    </button>
+     
   </mat-card>
 
 
