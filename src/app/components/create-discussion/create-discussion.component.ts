@@ -17,7 +17,6 @@ export class CreateDiscussionComponent implements OnInit {
     let discussion : IDiscussionBoard = {
       Title: title,
       Content: content,
-      //CreatedAt: new Date()
     }
     this.discussionBoardService.createDiscussion(discussion).subscribe(d => console.log("new discussion", discussion))
   }

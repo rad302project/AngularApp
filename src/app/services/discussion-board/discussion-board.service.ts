@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { IDiscussionBoard } from 'src/app/interfaces/discussion-board';
+import { IPost } from 'src/app/interfaces/post';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { IDiscussionBoard } from 'src/app/interfaces/discussion-board';
 export class DiscussionBoardService {
 
   private apiUrl = "http://localhost:57229/api/DiscussionBoards"
+  private postApiUrl = "http://localhost:57229/api/Posts"
   // private apiUrl = "azurelink/api/DiscussionBoards"
 
   constructor(private http: HttpClient) { }
@@ -28,6 +30,13 @@ export class DiscussionBoardService {
     );
   }
 
+  getPostsForDiscussion(id: string) : Observable<IPost[]> {
+    return this.http.get<IPost[]>(`${this.postApiUrl}/getPublicPostByBoardID/${id}`).pipe(
+      tap(posts => console.log('fetched posts for discussion', posts)),
+      catchError(this.handleError('getAllDiscussions', []))
+    );
+  }
+
   createDiscussion(discussion: IDiscussionBoard): Observable<IDiscussionBoard> {
     console.log("discussion service", { discussion })
     const httpOptions = {
@@ -37,6 +46,18 @@ export class DiscussionBoardService {
     return this.http.post<IDiscussionBoard>(this.apiUrl + "/postDiscussion", discussion, httpOptions).pipe(
       tap((newDiscussion: IDiscussionBoard) => console.log(`added discussion w/ id=${newDiscussion}`)),
       catchError(this.handleError<IDiscussionBoard>('addDiscussion'))
+    );
+  }
+
+  createPost(post: IPost) : Observable<IPost> {
+    console.log("post", { post })
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', "Access-Control-Allow-Origin": "http://localhost:4200" })
+    };
+
+    return this.http.post<IPost>(this.postApiUrl + "/createPublicPost", post, httpOptions).pipe(
+      tap((post: IPost) => console.log(`added discussion w/ id=${post}`)),
+      catchError(this.handleError<IPost>('addPost'))
     );
   }
 
