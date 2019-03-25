@@ -1,6 +1,6 @@
 export interface IPost {
     Title: string;
     Content: string;
-    MemberID: string;
+    MemberID: number;
     BoardID: number;
 }

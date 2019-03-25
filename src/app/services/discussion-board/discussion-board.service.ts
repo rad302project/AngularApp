@@ -49,6 +49,18 @@ export class DiscussionBoardService {
     );
   }
 
+  createPost(post: IPost) : Observable<IPost> {
+    console.log("post", { post })
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', "Access-Control-Allow-Origin": "http://localhost:4200" })
+    };
+
+    return this.http.post<IPost>(this.postApiUrl + "/createPublicPost", post, httpOptions).pipe(
+      tap((post: IPost) => console.log(`added discussion w/ id=${post}`)),
+      catchError(this.handleError<IPost>('addPost'))
+    );
+  }
+
   searchDiscussions(searchTerm: string): Observable<IDiscussionBoard[]> {
     return this.http.get<IDiscussionBoard[]>(this.apiUrl + '/getDiscussions/' + searchTerm).pipe(
       tap(searchedDiscussions => searchedDiscussions),

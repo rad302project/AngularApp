@@ -3,7 +3,9 @@
     max-width: 800px;
     width: 100%;
   }
-  
+  mat-card {
+      width: 80%
+  }
   .example-full-width {
     width: 100%;
   }
@@ -15,7 +17,4 @@
   }
   .wrapper {
       margin-top: 3%;
-  }
-  mat-select {
-      margin-bottom: 6%;
   }

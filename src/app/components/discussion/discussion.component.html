@@ -6,12 +6,12 @@
     <h5>
       {{discussion.Content}}
     </h5>
-    <button mat-raised-button color="primary" (click)="delete(discussion.ID)" style="width:50%" routerLink="/discussions">
-      <fa-icon [icon]="['fas', 'trash']"></fa-icon>
-      Delete Discussion
-    </button>
+      <fa-icon (click)="delete(discussion.ID)" routerLink="/discussions" color="warn"  [icon]="['fas', 'trash']"></fa-icon>
   </mat-card>
 
+
+
+  <app-add-post [discussionID]="discussionID"></app-add-post>
 
   <app-post-list [discussionID]="discussionID" ></app-post-list>
 </div>

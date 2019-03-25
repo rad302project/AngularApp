@@ -33,6 +33,7 @@ import { PrivateDiscussionBoardComponent } from './components/private-discussion
 import { DiscussionComponent } from './components/discussion/discussion.component';
 import { PostComponent } from './components/post/post.component';
 import { PostListComponent } from './components/post-list/post-list.component';
+import { AddPostComponent } from './components/add-post/add-post.component';
 
 library.add(far, fas);
 const routes: Routes = [
@@ -65,7 +66,8 @@ const routes: Routes = [
     PrivateDiscussionBoardComponent,
     DiscussionComponent,
     PostComponent,
-    PostListComponent
+    PostListComponent,
+    AddPostComponent
   ],
   imports: [
     BrowserModule,
