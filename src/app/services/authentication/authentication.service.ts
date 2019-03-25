@@ -7,6 +7,7 @@ import { map, catchError, tap } from "rxjs/operators";
 import { AuthUser, Token } from "./auth-user";
 
 import { environment } from "../../../environments/environment";
+import { URLSearchParams } from 'url';
 
 const CurrentUserTokenKey = "CURRENT_USER";
 
@@ -28,16 +29,19 @@ export class AuthenticationService {
     this.currentUser = this.getCachedUser();
     this.token = !!this.currentUser && this.currentUser.access_token;
     this.loginUrl = this.getLoginUrl();
-    this.registerUrl = 'http://localhost:57229/api/Account/Register';
+    this.registerUrl = 'http://localhost:57229/api/Account/Register/';
   }
 
-  public login(username: string, password: string): Observable<AuthUser> {
-    const params = new HttpParams()
-      .set("username", username)
-      .set("password", password)
-      .set("grant_type", "password");
+  public login(username: string, password: string) {
+    let params = new HttpParams();
+      params.set("username", username)
+      params.set("password", password)
+      params.set("grant_type", "password");
 
-    return this.sendRequest(params);
+    return this.http.post(`${environment.apiHost}/Token`, params.toString(), {
+      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+        .set('Access-Control-Allow-Origin', '*')
+    });
   }
 
   public logout(): void {
@@ -48,15 +52,16 @@ export class AuthenticationService {
     this.loginChangedSource.next(false);
   }
 
-  public register(email: string, password: string): void {
-    const params = {
-      "Email": email,
-      "Password": password,
-      "ConfirmPassword": password
-    }
-    console.log("in register", params);
-    
-    this.SendRequestRegister(params);
+  public register(email: string, password: string): Observable<any> {
+    return this.http.post(`${environment.apiHost}/Account/Register`, JSON.stringify({
+      Email: email,
+      Password: password,
+      ConfirmPassword: password
+    }), {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
   }
 
   public get isLoggedIn(): boolean {
@@ -89,25 +94,28 @@ export class AuthenticationService {
     };
 
      this.http
-      .post(this.registerUrl, params, httpOptions)
-      .pipe(map((response) => console.log(response)),
-      catchError(this.handleError('searchDiscussions', [])));
+      .post(this.registerUrl, body, httpOptions)
+      .pipe(
+        tap((response) => console.log(response)),
+        catchError(this.handleError('searchDiscussions', [])));
   }
 
   private sendRequest(params: HttpParams): Observable<AuthUser> {
     const body: string = params.toString();
     const httpOptions = {
-      headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', "Access-Control-Allow-Origin": "http://localhost:4200" })
+      headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded',
+                                  'Access-Control-Allow-Origin': '*',
+                                  'Accept': 'application/json' })
     };
     return this.http
       .post(this.loginUrl, body, httpOptions)
       .pipe(map((response: Token) => this.saveToken(response)));
-      
-      
+    
   }
 
   private saveToken(response: Token): AuthUser {
     // login successful if there's a jwt token in the response
+    console.log("in save token");
     const token = response && response.access_token;
     if (token) {
       // set token property
