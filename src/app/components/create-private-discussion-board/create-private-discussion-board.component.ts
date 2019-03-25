@@ -19,11 +19,10 @@ export class CreatePrivateDiscussionBoardComponent implements OnInit {
   }
   createPrivateDiscussion() {
     console.log("bouta make one")
-let PDB: IPrivateDiscussionBoard = {
-  Title: this.Title,
-  Content: this.Content
-}
-
+    let PDB: IPrivateDiscussionBoard = {
+      Title: this.Title,
+      Content: this.Content
+    }
     this.PDBService.postPrivateDiscussion(PDB)
   }
 
