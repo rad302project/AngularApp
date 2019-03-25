@@ -1,10 +1,47 @@
-<mat-card class="example-card" *ngIf="privateDiscussionBoard">
-  <mat-card-header>
-    <mat-card-title>{{privateDiscussionBoard.Title}}</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <p>
-      {{privateDiscussionBoard.Content}}
-    </p>
-  </mat-card-content>
-</mat-card>
+<div class="form">
+  <mat-card class="card" *ngIf="privateDiscussionBoard">
+    <mat-card-header>
+      <mat-card-title><h2>{{privateDiscussionBoard.Title}}</h2></mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+     
+       <h3> {{privateDiscussionBoard.Content}}</h3>
+   
+    </mat-card-content>
+  </mat-card>
+</div>
+
+  <div class="form">
+    <div *ngIf="posts">
+        <mat-card class="card" *ngFor="let post of posts">
+            <mat-card-header>
+              <mat-card-title>{{post.Title}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p>
+              {{post.Content}}
+              </p>
+            </mat-card-content>
+            <button (click)="deletePost(post.ID)"><i class="material-icons"> delete</i></button>
+          </mat-card>
+    </div>
+      
+    <mat-form-field>
+      <input [(ngModel)]="Title"  matInput placeholder="Title">
+    </mat-form-field>
+  
+    <mat-form-field>
+      <textarea [(ngModel)]="Content" matInput placeholder="Content"></textarea>
+    </mat-form-field>
+    <button (click)="createPrivateDiscussionPost()" mat-button>Create Post</button>
+
+
+    <!-- <mat-form-field>
+        <input type="text" #searchTerm (keyup)="searchBoards(searchTerm.value)" placeholder="Search for a user" matInput [formControl]="myControl" [matAutocomplete]="auto">
+        <input type="button" (click)="saveMember()">
+      </mat-form-field>
+    
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let member of members" (click)="selectUser(member)" [value]="member.">{{option}}</mat-option>
+      </mat-autocomplete> -->
+  </div>

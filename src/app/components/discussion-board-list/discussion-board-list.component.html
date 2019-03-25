@@ -11,7 +11,8 @@
 
   <mat-divider style="margin-bottom: 2%"></mat-divider>
   <mat-form-field style="width:100%;">
-    <input matInput #searchTerm (keyup)="searchBoards(searchTerm.value)" placeholder="Search for a Discussion" style="width: 100%;">
+    <input matInput #searchTerm (keyup)="searchBoards(searchTerm.value)" placeholder="Search for a Discussion"
+      style="width: 100%;">
   </mat-form-field>
 
   <div *ngIf="searchedDiscussions">
@@ -24,10 +25,10 @@
 
   <div *ngIf="!searchedDiscussions">
     <mat-list *ngFor="let discussion of discussions">
-      <mat-card  [routerLink]="['/discussion', discussion.ID]">
+      <mat-card [routerLink]="['/discussion', discussion.ID]">
         {{discussion.Title}}
       </mat-card>
     </mat-list>
   </div>
-
+ 
 </div>

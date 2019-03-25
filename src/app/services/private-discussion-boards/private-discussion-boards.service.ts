@@ -43,4 +43,6 @@ export class PrivateDiscussionBoardsService {
 
     return this.httpclient.get<IPrivateDiscussionBoard>(this.API + "/" + id, httpOptions)
   }
+
+ 
 }
