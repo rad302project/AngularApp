@@ -31,6 +31,9 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { CreatePrivateDiscussionBoardComponent } from './components/create-private-discussion-board/create-private-discussion-board.component';
 import { PrivateDiscussionBoardComponent } from './components/private-discussion-board/private-discussion-board.component';
 import { DiscussionComponent } from './components/discussion/discussion.component';
+import { PostComponent } from './components/post/post.component';
+import { PostListComponent } from './components/post-list/post-list.component';
+import { AddPostComponent } from './components/add-post/add-post.component';
 
 library.add(far, fas);
 const routes: Routes = [
@@ -61,7 +64,10 @@ const routes: Routes = [
     UserListComponent,
     CreatePrivateDiscussionBoardComponent,
     PrivateDiscussionBoardComponent,
-    DiscussionComponent
+    DiscussionComponent,
+    PostComponent,
+    PostListComponent,
+    AddPostComponent
   ],
   imports: [
     BrowserModule,
