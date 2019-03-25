@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { IDiscussionBoard } from 'src/app/interfaces/discussion-board';
+import { IPost } from 'src/app/interfaces/post';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { IDiscussionBoard } from 'src/app/interfaces/discussion-board';
 export class DiscussionBoardService {
 
   private apiUrl = "http://localhost:57229/api/DiscussionBoards"
+  private postApiUrl = "http://localhost:57229/api/Posts"
   // private apiUrl = "azurelink/api/DiscussionBoards"
 
   constructor(private http: HttpClient) { }
@@ -24,6 +26,13 @@ export class DiscussionBoardService {
   getDiscussionByID(id: string) : Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${id}`).pipe(
       tap(discussions => console.log('fetched discussions', discussions)),
+      catchError(this.handleError('getAllDiscussions', []))
+    );
+  }
+
+  getPostsForDiscussion(id: string) : Observable<IPost[]> {
+    return this.http.get<IPost[]>(`${this.postApiUrl}/getPublicPostByBoardID/${id}`).pipe(
+      tap(posts => console.log('fetched posts for discussion', posts)),
       catchError(this.handleError('getAllDiscussions', []))
     );
   }
