@@ -10,9 +10,10 @@ import { IPost } from 'src/app/interfaces/post';
 })
 export class DiscussionBoardService {
 
-  private apiUrl = "http://localhost:57229/api/DiscussionBoards"
-  private postApiUrl = "http://localhost:57229/api/Posts"
-  // private apiUrl = "azurelink/api/DiscussionBoards"
+  // private apiUrl = "http://localhost:57229/api/DiscussionBoards"
+  // private postApiUrl = "http://localhost:57229/api/Posts"
+  private apiUrl = "https://educomboardswebapi20190325102606.azurewebsites.net/api/DiscussionBoards"
+  private postApiUrl = "https://educomboardswebapi20190325102606.azurewebsites.net/api/Posts"
 
   constructor(private http: HttpClient) { }
 
