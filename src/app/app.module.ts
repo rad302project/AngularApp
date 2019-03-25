@@ -26,8 +26,8 @@ import { far } from "@fortawesome/free-regular-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { CreateDiscussionComponent } from './components/create-discussion/create-discussion.component';
 import { PrivateDiscussionBoardsListComponent } from '../app/components/private-discussion-board-list/private-discussion-boards.component'
-import { UserComponent } from './user/user.component';
-import { UserListComponent } from './user-list/user-list.component';
+import { UserComponent } from './components/user/user.component';
+import { UserListComponent } from './components/user-list/user-list.component';
 import { CreatePrivateDiscussionBoardComponent } from './components/create-private-discussion-board/create-private-discussion-board.component';
 import { PrivateDiscussionBoardComponent } from './components/private-discussion-board/private-discussion-board.component';
 import { DiscussionComponent } from './components/discussion/discussion.component';
