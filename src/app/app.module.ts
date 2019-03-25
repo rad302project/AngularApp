@@ -14,8 +14,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from "@angular/router";
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { DiscussionBoardComponent } from '../app/components/discussion-board/discussion-board.component';
+import { DiscussionBoardComponent } from './components/discussion-board/discussion-board.component';
 import { DiscussionBoardListComponent } from './components/discussion-board-list/discussion-board-list.component';
+
 
 import { FlexLayoutModule } from "@angular/flex-layout"
 
@@ -29,12 +30,13 @@ import { UserComponent } from './user/user.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { CreatePrivateDiscussionBoardComponent } from './components/create-private-discussion-board/create-private-discussion-board.component';
 import { PrivateDiscussionBoardComponent } from './components/private-discussion-board/private-discussion-board.component';
+import { DiscussionComponent } from './components/discussion/discussion.component';
 
 library.add(far, fas);
 const routes: Routes = [
-  { path: "", pathMatch: "full", redirectTo: "home" },
-  { path: "home", component: DiscussionBoardListComponent },
+  { path: "", pathMatch: "full", redirectTo: "discussions" },
   { path: "discussions", component: DiscussionBoardListComponent },
+  { path: "discussion/:id", component: DiscussionComponent },
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignUpComponent },
   { path: "create", component: CreateDiscussionComponent },
@@ -58,7 +60,8 @@ const routes: Routes = [
     UserComponent,
     UserListComponent,
     CreatePrivateDiscussionBoardComponent,
-    PrivateDiscussionBoardComponent
+    PrivateDiscussionBoardComponent,
+    DiscussionComponent
   ],
   imports: [
     BrowserModule,

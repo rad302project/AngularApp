@@ -5,13 +5,8 @@ mat-list-item {
     margin: 0 0 10px 0;
 }
 .container {
+    margin-top: 5%;
     width: 100%;
 
 }
-.title-container {
-    margin-top: 2%;
-}
 
-mat-card:hover {
-    cursor: pointer;
-}

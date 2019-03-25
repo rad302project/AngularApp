@@ -21,6 +21,13 @@ export class DiscussionBoardService {
     );
   }
 
+  getDiscussionByID(id: string) : Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`).pipe(
+      tap(discussions => console.log('fetched discussions', discussions)),
+      catchError(this.handleError('getAllDiscussions', []))
+    );
+  }
+
   createDiscussion(discussion: IDiscussionBoard): Observable<IDiscussionBoard> {
     console.log("discussion service", { discussion })
     const httpOptions = {
@@ -35,8 +42,20 @@ export class DiscussionBoardService {
 
   searchDiscussions(searchTerm: string): Observable<IDiscussionBoard[]> {
     return this.http.get<IDiscussionBoard[]>(this.apiUrl + '/getDiscussions/' + searchTerm).pipe(
-      tap(searchedDiscussions => console.log('searched discussions', searchedDiscussions)),
+      tap(searchedDiscussions => searchedDiscussions),
       catchError(this.handleError('searchDiscussions', []))
+    );
+  }
+
+  deleteDiscussion(id: number): Observable<IDiscussionBoard> {
+    console.log("deleting discussion ", id )
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json', "Access-Control-Allow-Origin": "http://localhost:4200" })
+    };
+
+    return this.http.delete<IDiscussionBoard>(`${this.apiUrl}/${id}`, httpOptions).pipe(
+      tap((deleteDiscussion: IDiscussionBoard) => console.log(`deleted discussion w/ id=${deleteDiscussion}`)),
+      catchError(this.handleError<IDiscussionBoard>('deleteDiscussion'))
     );
   }
 
