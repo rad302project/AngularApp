@@ -10,6 +10,7 @@ import { AuthenticationService } from 'src/app/services/authentication/authentic
 })
 export class SignUpComponent implements OnInit {
   firstName: string;
+  name: string;
   lastName: string;
   pwd: string;
   email: string;

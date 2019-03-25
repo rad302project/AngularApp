@@ -10,7 +10,7 @@ import { IPost } from 'src/app/interfaces/post';
 export class PostListComponent implements OnInit {
 
   @Input() discussionID: string
-  private posts: IPost[];
+  public posts: IPost[];
 
   constructor(private discussionService: DiscussionBoardService) { }
 

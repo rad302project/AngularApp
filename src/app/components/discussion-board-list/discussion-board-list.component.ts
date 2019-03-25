@@ -12,7 +12,7 @@ export class DiscussionBoardListComponent implements OnInit {
   currentlyOpenedItemIndex = -1;
 
   private discussions: IDiscussionBoard[]
-  private searchedDiscussions: IDiscussionBoard[]
+  public searchedDiscussions: IDiscussionBoard[]
  
   constructor(private discussionService: DiscussionBoardService, private router: Router) { }
 

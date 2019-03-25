@@ -10,6 +10,7 @@ import { UsersService } from '../../services/users/users.service';
 export class UserListComponent implements OnInit {
 
   private users: IUser[]
+  public user: IUser;
 
   constructor(private usersService: UsersService) { }
 
