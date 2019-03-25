@@ -10,7 +10,7 @@ import { DiscussionBoardService } from 'src/app/services/discussion-board/discus
 })
 export class DiscussionComponent implements OnInit {
 
-  private discussion: IDiscussionBoard;
+  public discussion: IDiscussionBoard;
   public discussionID: string;
   constructor(private route: ActivatedRoute, private discussionService: DiscussionBoardService) {
     console.log("test", this.route.snapshot.paramMap)
